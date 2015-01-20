@@ -16,7 +16,10 @@ class MainScene: CCNode {
     player.physicsBody.type = .Kinematic
     cpu.physicsBody.type = .Kinematic
     
-    startGame()
+    let xImpulse = 40
+    let yImpulse = 40
+    let impulse = CGPoint(x: xImpulse, y: yImpulse)
+    ball.physicsBody.applyImpulse(impulse)
   }
   
   override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
@@ -40,16 +43,8 @@ class MainScene: CCNode {
     }
     
     if ( (CGRectGetMaxX(ball.boundingBox()) < 0) || CGRectGetMinX(ball.boundingBox()) > self.contentSizeInPoints.width ){
-      startGame()
+      let mainScene = CCBReader.loadAsScene("MainScene")
+      CCDirector.sharedDirector().replaceScene(mainScene)
     }
   }
-  
-  func startGame() {
-    ball.position = CGPoint(x: self.contentSizeInPoints.width / 2, y: self.contentSizeInPoints.height / 2)
-    let xImpulse = 40
-    let yImpulse = 40
-    let impulse = CGPoint(x: xImpulse, y: yImpulse)
-    ball.physicsBody.applyImpulse(impulse)
-  }
-  
 }
