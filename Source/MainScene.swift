@@ -36,9 +36,12 @@ class MainScene: CCNode {
   
   override func fixedUpdate(delta: CCTime) {
     // cpu movement
-    if (ball.position.y < cpu.positionInPoints.y) {
+    let yDistance = ball.position.y - cpu.positionInPoints.y
+    let threshold:CGFloat = 10
+    
+    if (yDistance < -threshold) {
       cpu.positionInPoints = CGPoint(x: cpu.positionInPoints.x, y: cpu.positionInPoints.y - CGFloat(delta * cpuPointsPerSecond))
-    } else if (ball.position.y > cpu.positionInPoints.y) {
+    } else if (yDistance > threshold) {
       cpu.positionInPoints = CGPoint(x: cpu.positionInPoints.x, y: cpu.positionInPoints.y + CGFloat(delta * cpuPointsPerSecond))
     }
     

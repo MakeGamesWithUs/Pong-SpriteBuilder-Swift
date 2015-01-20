@@ -246,7 +246,7 @@
 							<key>density</key>
 							<real>1</real>
 							<key>dynamic</key>
-							<true/>
+							<false/>
 							<key>elasticity</key>
 							<real>1</real>
 							<key>friction</key>
