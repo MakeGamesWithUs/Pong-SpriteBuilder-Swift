@@ -2,12 +2,11 @@ import Foundation
 
 class MainScene: CCNode {
   
-  var ball:CCNodeColor!
-  var player:CCNodeColor!
-  var cpu:CCNodeColor!
-  var latestTouchLocation:CGPoint?
-  
-  let cpuPointsPerSecond:Double = 200
+  var ball: CCNodeColor!
+  var player: CCNodeColor!
+  var cpu: CCNodeColor!
+  var latestTouchLocation: CGPoint?
+  let cpuPointsPerSecond: Double = 200
   
   override func onEnterTransitionDidFinish() {
     super.onEnterTransitionDidFinish()
